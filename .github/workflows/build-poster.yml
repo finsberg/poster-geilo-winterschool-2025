@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build poster
-        run: pdflatex main.tex
+        run: |
+          pdflatex main.tex
+          pdflatex main.tex
 
       - name: Upload
         uses: actions/upload-artifact@v4

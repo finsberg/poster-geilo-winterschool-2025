@@ -4,6 +4,7 @@ Source code for poster shown at the [Geilo Winter School 2025](https://www.sinte
 Compile the pdf using 
 ```
 pdflatex main.tex
+pdflatex main.tex
 ```
 You can also use the provided GitHub workflow which will upload the pdf as an artifact
 
