@@ -1,0 +1,23 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Build poster
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-22.04
+    container: ghcr.io/scientificcomputing/latex-full:2023-11-07a
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build poster
+        run: pdflatex main.tex
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: poster
+          path: main.pdf

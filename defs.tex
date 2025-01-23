@@ -1,0 +1,207 @@
+% !TEX root = tesi.tex
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cfield}{\mathbb{C}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\tens}[1]{\mathsf{#1}}
+% something between bar and overline
+%\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+\newcommand*\overbar[2][1.00]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+
+\newcommand{\vx}{\vect{x}}
+\newcommand{\vy}{\vect{y}}
+\newcommand{\vX}{\vect{X}}
+\newcommand{\vA}{\vect{A}}
+\newcommand{\va}{\vect{a}}
+\newcommand{\vvb}{\vect{b}}
+\newcommand{\vc}{\vect{c}}
+\newcommand{\vk}{\vect{k}}
+\newcommand{\ve}{\vect{e}}
+\newcommand{\vp}{\vect{p}}
+\newcommand{\vu}{\vect{u}}
+\newcommand{\vv}{\vect{v}}
+\newcommand{\vb}{\vect{b}}
+\newcommand{\vf}{\vect{f}}
+\newcommand{\vs}{\vect{s}}
+\newcommand{\vg}{\vect{g}}
+\newcommand{\vn}{\vect{n}}
+\newcommand{\vm}{\vect{m}}
+\newcommand{\vh}{\vect{h}}
+\newcommand{\vt}{\vect{t}}
+\newcommand{\vw}{\vect{w}}
+\newcommand{\vfo}{\vf_\circ}
+\newcommand{\vso}{\vs_\circ}
+\newcommand{\vno}{\vn_\circ}
+
+\newcommand{\vxi}{\bm{\xi}}
+
+\newcommand{\tF}{\tens{F}}
+\newcommand{\tT}{\tens{T}}
+\newcommand{\tP}{\tens{P}}
+\newcommand{\tS}{\tens{S}}
+\newcommand{\tI}{\tens{I}}
+\newcommand{\tQ}{\tens{Q}}
+\newcommand{\tB}{\tens{B}}
+\newcommand{\tC}{\tens{C}}
+\newcommand{\tE}{\tens{E}}
+\newcommand{\tR}{\tens{R}}
+\newcommand{\tU}{\tens{U}}
+\newcommand{\tA}{\tens{A}}
+\newcommand{\tD}{\tens{D}}
+\newcommand{\tH}{\tens{H}}
+\newcommand{\tJ}{\tens{J}}
+\newcommand{\tX}{\tens{X}}
+\newcommand{\tV}{\tens{V}}
+\newcommand{\tM}{\tens{M}}
+\newcommand{\tL}{\tens{L}}
+
+\newcommand{\tFiso}{\tF_\mathsf{iso}}
+\newcommand{\tFvol}{\tF_\mathsf{vol}}
+
+\newcommand{\tTiso}{\tT_\mathsf{iso}}
+\newcommand{\btTiso}{\overbar[0.75]{\tT}_\mathsf{iso}}
+\newcommand{\tTvol}{\tT_\mathsf{vol}}
+
+\newcommand{\tSiso}{\tS_\mathsf{iso}}
+\newcommand{\btSiso}{\overbar[0.9]{\tS}_\mathsf{iso}}
+\newcommand{\tSvol}{\tS_\mathsf{vol}}
+
+\newcommand{\tCiso}{\tC_\mathsf{iso}}
+\newcommand{\tEiso}{\tE_\mathsf{iso}}
+\newcommand{\tBiso}{\tB_\mathsf{iso}}
+\newcommand{\vfiso}{\vf_\mathsf{iso}}
+\newcommand{\vsiso}{\vs_\mathsf{iso}}
+\newcommand{\cIiso}{\cI^\mathsf{iso}}
+
+\newcommand{\tFa}{\tF_\mathsf{a}}
+\newcommand{\tFe}{\tF_\mathsf{e}}
+\newcommand{\tauref}{\tau_{\textsf{ref}}}
+\newcommand{\tPa}{\tP_\mathsf{a}}
+\newcommand{\tPe}{\tP_\mathsf{e}}
+\newcommand{\tTa}{\tT_\mathsf{a}}
+\newcommand{\tTe}{\tT_\mathsf{e}}
+\newcommand{\tSa}{\tS_\mathsf{a}}
+\newcommand{\tSe}{\tS_\mathsf{e}}
+\newcommand{\tBe}{\tB_\mathsf{e}}
+\newcommand{\tCe}{\tC_\mathsf{e}}
+
+\newcommand{\sSa}{s_\mathsf{a}}
+\newcommand{\bsSa}{\overbar s_\mathsf{a}}
+
+\newcommand{\htSa}{\widehat\tS_\textsf{a}}
+
+\newcommand{\body}{\mathfrak{B}}
+
+\newcommand{\vphi}{\bm{\varphi}}
+\newcommand{\veta}{\bm{\eta}}
+\newcommand{\vvphi}{\hm{\varphi}}
+\newcommand{\vTheta}{\bm{\Theta}}
+\newcommand{\vpp}{\mathbf{p}}
+
+\newcommand{\tK}{\tens{K}}
+\newcommand{\tO}{\tens{O}}
+\newcommand{\tKuu}{\tK_\mathsf{\varphi\varphi}}
+\newcommand{\tKup}{\tK_\mathsf{\varphi p}}
+\newcommand{\tKpu}{\tK_\mathsf{p \varphi}}
+\newcommand{\tKpt}{\tK_\mathsf{p \theta}}
+\newcommand{\tKtp}{\tK_\mathsf{\theta p}}
+\newcommand{\tKtt}{\tK_\mathsf{\theta\theta}}
+\newcommand{\tKpp}{\tK_\mathsf{pp}}
+\newcommand{\vrhs}{\bm{\mathsf{f}}}
+\newcommand{\vrhsu}{\vrhs_\mathsf{\varphi}}
+\newcommand{\vrhst}{\vrhs_\mathsf{\theta}}
+\newcommand{\vrhsp}{\vrhs_\mathsf{p}}
+
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\hcW}{\widehat\cW}
+\newcommand{\tcW}{\widetilde\cW}
+\newcommand{\hcWorth}{\hcW_\mathsf{orth}}
+\newcommand{\hcWtr}{\hcW_\mathsf{tr}}
+\newcommand{\cWiso}{\cW_\mathsf{iso}}
+\newcommand{\hcWiso}{\hcW_\mathsf{iso}}
+\newcommand{\cWvol}{\cW_\mathsf{vol}}
+\newcommand{\cG}{\mathscr{G}}
+\newcommand{\cGorth}{\cG_\mathsf{orth}}
+\newcommand{\cGtr}{\cG_\mathsf{tr}}
+
+\newcommand{\cI}{\mathcal{I}}
+
+\newcommand{\aaf}{a_\mathsf{f}}
+\newcommand{\aas}{a_\mathsf{s}}
+\newcommand{\bbf}{b_\mathsf{f}}
+\newcommand{\bbs}{b_\mathsf{s}}
+\newcommand{\aafs}{a_\mathsf{fs}}
+\newcommand{\bbfs}{b_\mathsf{fs}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\CCiso}{\CC_\mathsf{iso}}
+\newcommand{\cc}{\mathfrak{c}}
+\newcommand{\cciso}{\cc_\mathsf{iso}}
+\newcommand{\ccvol}{\cc_\mathsf{vol}}
+\newcommand{\bcciso}{\overbar{\cc}_\mathsf{iso}}
+
+\newcommand{\tsp}[1]{#1^\mathsf{T}}
+\newcommand{\mtsp}[1]{#1^{-\mathsf{T}}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\DD}{\mathrm{D}}
+
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\bracket}[1]{\left\langle #1 \right\rangle}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+\newcommand{\Piext}{\Pi_\mathsf{ext}}
+
+\newcommand{\Lin}{\mathrm{Lin}}
+\newcommand{\Linp}{\mathrm{Lin}^+}
+\newcommand{\Orth}{\mathrm{Orth}}
+\newcommand{\Orthp}{\mathrm{Orth}^+}
+\newcommand{\Symp}{\mathrm{Sym}^+}
+
+\newcommand{\ddV}{\dd V}
+\newcommand{\ddv}{\dd v}
+\newcommand{\ddA}{\dd A}
+\newcommand{\dda}{\dd a}
+
+\newcommand{\Vinner}{V_\mathsf{inner}}
+\newcommand{\pinner}{p_\mathsf{inner}}
+
+%\DeclareMathOperator{\diver}{div}
+%\DeclareMathOperator{\tr}{tr}
+%\DeclareMathOperator{\cof}{cof}
+%\DeclareMathOperator{\dev}{dev}
+%\DeclareMathOperator{\vol}{vol}
+%\DeclareMathOperator{\DIV}{\textsc{Div}}
+%\DeclareMathOperator{\DEV}{\textsc{Dev}}
+%\DeclareMathOperator{\GRAD}{\textsc{Grad}}
+%\DeclareMathOperator{\sym}{sym}
+%\DeclareMathOperator{\diag}{diag}
+%\DeclareMathOperator{\sign}{sign}
+
+%\DeclareMathOperator*{\esssup}{ess\kern3pt sup}
+
+\newcommand{\fcubic}{f_\mathsf{cubic}}
+\newcommand{\fstep}{f_\mathsf{step}}
+%\DeclareMathOperator{\Heavi}{\mathcal{H}}
+
+\newcommand{\Cm}{C_\textsf{m}}
+\newcommand{\Iionic}{I_\textsf{ionic}}
+\newcommand{\Isource}{I_\textsf{source}}
+
